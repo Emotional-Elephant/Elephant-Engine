@@ -110,7 +110,7 @@ bool Device::Frame()
 bool Device::Render()
 {
     d3d11_device_context_->OMSetRenderTargets(1, d3d11_rtv_.GetAddressOf(), NULL);
-    float color[4] = { 0.3f,0.5f,0.7f,1.0f };
+    float color[4] = { 0.7f, 0.5f, 0.3f, 1.0f };
     d3d11_device_context_->ClearRenderTargetView(d3d11_rtv_.Get(), color);
     d3d11_device_context_->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     return true;

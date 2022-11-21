@@ -91,6 +91,7 @@ void Window::CenterWindow()
 
 bool Window::Init()
 {
+	CenterWindow();
 	return true;
 }
 
