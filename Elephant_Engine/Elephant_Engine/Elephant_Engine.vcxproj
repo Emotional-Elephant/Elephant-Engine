@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -80,9 +80,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>../output/Debug/$(ProjectName)</OutDir>
+    <IntDir>../output/Debug/$(ProjectName)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>../output/Release/$(ProjectName)</OutDir>
+    <IntDir>../output/Release/$(ProjectName)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -134,6 +138,17 @@ copy "Elephent_Engine_d.lib" "..\\lib\\"</Command>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <OutputFile>Elephent_Engine_d.lib</OutputFile>
+    </Lib>
+    <PreBuildEvent>
+      <Command>RmDir /S /Q "../include/Elephent_Engine"
+MkDir "../include/Elephent_Engine"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>copy "*.h" "..\\include\\Elephent_Engine"
+copy "Elephent_Engine_d.lib" "..\\lib\\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -149,7 +164,19 @@ copy "Elephent_Engine_d.lib" "..\\lib\\"</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>Elephent_Engine_r.lib</OutputFile>
     </Link>
+    <Lib>
+      <OutputFile>Elephent_Engine_r.lib</OutputFile>
+    </Lib>
+    <PreBuildEvent>
+      <Command>RmDir /S /Q "../include/Elephent_Engine"
+MkDir "../include/Elephent_Engine"</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>copy "*.h" "..\\include\\Elephent_Engine"
+copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Device.cpp" />
