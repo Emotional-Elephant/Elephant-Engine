@@ -1,6 +1,9 @@
 #pragma once
 #include "Window.h"
 #include "Device.h"
+#include "Input.h"
+#include "Timer.h"
+#include "Writer.h"
 
 class EngineCore
 {

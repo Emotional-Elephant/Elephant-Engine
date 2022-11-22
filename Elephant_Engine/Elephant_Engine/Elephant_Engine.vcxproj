@@ -181,13 +181,19 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
   <ItemGroup>
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="EngineCore.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Singleton.h" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.h" />
     <ClInclude Include="EngineCore.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
