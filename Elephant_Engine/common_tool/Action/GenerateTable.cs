@@ -1,7 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace CommonTool.Action
 {
@@ -9,7 +8,6 @@ namespace CommonTool.Action
     {
         public GenerateTable(Parameter param) : base(param)
         {
-
         }
 
         public override void Run()
@@ -35,10 +33,58 @@ namespace CommonTool.Action
         }
 
         // 코드 생성
-        bool GenerateCode(string sourcePath, string outputPath)
+        private bool GenerateCode(string sourcePath, string outputPath)
         {
             string filePath = string.Empty;
-            foreach (string fileName in fileEn)
+            try
+            {
+                string[] fileEntries = Directory.GetFiles(sourcePath);
+                foreach (string fileName in fileEntries)
+                {
+                    FileInfo fi = new FileInfo(fileName);
+                    string title = fi.Name.Substring(0, fi.Name.IndexOf("."));
+                    filePath = fileName;
+                    if (fi.Extension != ".csv")
+                    {
+                        continue;
+                    }
+
+                    List<Column> cols = new List<Column>();
+                    List<KeyValuePair<string, int>> enumKeys = new List<KeyValuePair<string, int>>();
+                    using (var reader = new StreamReader(fi.FullName))
+                    {
+                        int row = 0;
+                        while (!reader.EndOfStream)
+                        {
+                            var line = reader.ReadLine();
+                            List<string> words = new List<string>(line.Split(','));
+                            if (row == 0)
+                            {
+                                for (var i = 0; i < words.Count; i++)
+                                {
+                                    cols.Add(new Column { Name = words[i] });
+                                }
+                            }
+                            else if (row == 1)
+                            {
+                                for (var i = 0; i < words.Count; i++)
+                                {
+                                    cols[i].Type = words[i];
+                                }
+                            }
+                            row++;
+                        }
+                    }
+
+                    if (Directory.Exists(outputPath) == false)
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error GenerateCode. filePath: {filePath}");
+                return false;
+            }
+            return true;
         }
     }
 }

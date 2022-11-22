@@ -7,7 +7,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Elephant_Engine", "Elephant
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestProject", "TestProject\TestProject.vcxproj", "{662C0BD8-14BA-446E-932E-1F92DCAD56C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTool", "common_tool\CommonTool.csproj", "{8CE11EE6-B5A9-47B3-B5CE-1EFFB1EBA040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTool", "common_tool\CommonTool.csproj", "{8CE11EE6-B5A9-47B3-B5CE-1EFFB1EBA040}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsolTest", "ConsolTest\ConsolTest.vcxproj", "{783FC2C7-0DE3-4356-8866-401592163A4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,16 @@ Global
 		{8CE11EE6-B5A9-47B3-B5CE-1EFFB1EBA040}.Release|x64.Build.0 = Release|Any CPU
 		{8CE11EE6-B5A9-47B3-B5CE-1EFFB1EBA040}.Release|x86.ActiveCfg = Release|Any CPU
 		{8CE11EE6-B5A9-47B3-B5CE-1EFFB1EBA040}.Release|x86.Build.0 = Release|Any CPU
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Debug|x64.ActiveCfg = Debug|x64
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Debug|x64.Build.0 = Debug|x64
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Debug|x86.ActiveCfg = Debug|Win32
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Debug|x86.Build.0 = Debug|Win32
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Release|Any CPU.ActiveCfg = Release|Win32
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Release|x64.ActiveCfg = Release|x64
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Release|x64.Build.0 = Release|x64
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Release|x86.ActiveCfg = Release|Win32
+		{783FC2C7-0DE3-4356-8866-401592163A4B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

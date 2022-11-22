@@ -17,7 +17,7 @@ namespace CommonTool
 
                 Dictionary<string, ActionBase> dicAction = new Dictionary<string, ActionBase>
                 {
-                    {"gen:table", new GaenrateTable(param)},
+                    {"gen:table", new GenerateTable(param)},
                 }
             }
             catch (Exception ex)
