@@ -156,7 +156,7 @@ HRESULT ShaderManager::GetPixelShader(std::weak_ptr<ID3D11PixelShader*>& pixel_s
         NULL,
         NULL,
         func_name.c_str(),
-        "vs_5_0",
+        "ps_5_0",
         shader_flags,
         0,
         &ps_code_ptr,
