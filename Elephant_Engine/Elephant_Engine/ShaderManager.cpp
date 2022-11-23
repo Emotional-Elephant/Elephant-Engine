@@ -12,6 +12,10 @@ HRESULT ShaderManager::GetVertexShader(std::weak_ptr<ID3D11VertexShader*>& verte
         return S_OK;
     }
 
+    DWORD shader_flags = D3DCOMPILE_SKIP_OPTIMIZATION;
+#if defined( _DEBUG ) 
+    shader_flags |= D3DCOMPILE_DEBUG;
+#endif
     ID3DBlob* vs_code_ptr = nullptr;
     hr = D3DCompileFromFile(
         file_name.c_str(),
@@ -19,7 +23,7 @@ HRESULT ShaderManager::GetVertexShader(std::weak_ptr<ID3D11VertexShader*>& verte
         NULL,
         func_name.c_str(),
         "vs_5_0",
-        0,
+        shader_flags,
         0,
         &vs_code_ptr,
         &pErrorCode);
@@ -75,6 +79,10 @@ HRESULT ShaderManager::GetVSCode(std::weak_ptr<ID3DBlob*>& vs_code, std::wstring
         return S_OK;
     }
 
+    DWORD shader_flags = D3DCOMPILE_SKIP_OPTIMIZATION;
+#if defined( _DEBUG ) 
+    shader_flags |= D3DCOMPILE_DEBUG;
+#endif
     ID3DBlob* vs_code_ptr = nullptr;
     hr = D3DCompileFromFile(
         file_name.c_str(),
@@ -82,7 +90,7 @@ HRESULT ShaderManager::GetVSCode(std::weak_ptr<ID3DBlob*>& vs_code, std::wstring
         NULL,
         func_name.c_str(),
         "vs_5_0",
-        0,
+        shader_flags,
         0,
         &vs_code_ptr,
         &pErrorCode);
@@ -138,6 +146,10 @@ HRESULT ShaderManager::GetPixelShader(std::weak_ptr<ID3D11PixelShader*>& pixel_s
         return S_OK;
     }
 
+    DWORD shader_flags = D3DCOMPILE_SKIP_OPTIMIZATION;
+#if defined( _DEBUG ) 
+    shader_flags |= D3DCOMPILE_DEBUG;
+#endif
     ID3DBlob* ps_code_ptr = nullptr;
     hr = D3DCompileFromFile(
         file_name.c_str(),
@@ -145,7 +157,7 @@ HRESULT ShaderManager::GetPixelShader(std::weak_ptr<ID3D11PixelShader*>& pixel_s
         NULL,
         func_name.c_str(),
         "vs_5_0",
-        0,
+        shader_flags,
         0,
         &ps_code_ptr,
         &pErrorCode);
