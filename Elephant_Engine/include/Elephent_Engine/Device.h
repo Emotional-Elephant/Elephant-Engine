@@ -1,5 +1,4 @@
 #pragma once
-#include "Singleton.h"
 #include "Window.h"
 #include <d3d11.h>
 #include <d3dcompiler.h>

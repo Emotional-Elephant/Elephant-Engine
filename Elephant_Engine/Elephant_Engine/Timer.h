@@ -1,7 +1,5 @@
 #pragma once
-#include "Singleton.h"
-#include <string>
-#include <Windows.h>
+#include"stdafx.h"
 #pragma comment(lib, "winmm.lib")
 class Timer : public Singleton<Timer>
 {

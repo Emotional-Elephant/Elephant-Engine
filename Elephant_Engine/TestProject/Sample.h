@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "EngineCore.h"
 
 class Sample : public EngineCore

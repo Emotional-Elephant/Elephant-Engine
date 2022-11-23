@@ -1,8 +1,5 @@
 #pragma once
-#pragma once
-#include <windows.h>
-#include <string>
-#include "Singleton.h"
+#include"stdafx.h"
 
 enum KeyState
 {

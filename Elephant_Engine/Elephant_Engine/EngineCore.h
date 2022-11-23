@@ -1,6 +1,5 @@
 #pragma once
-#include "Window.h"
-#include "Device.h"
+#include "stdafx.h"
 #include "Input.h"
 #include "Timer.h"
 #include "Writer.h"
