@@ -58,6 +58,8 @@ HRESULT ShaderManager::GetVertexShader(std::weak_ptr<ID3D11VertexShader*>& verte
         }
     }
 
+    vertex_shader = std::weak_ptr<ID3D11VertexShader*>(vs_list_.find(file_name)->second.second);
+
     return hr;
 }
 
@@ -119,6 +121,8 @@ HRESULT ShaderManager::GetVSCode(std::weak_ptr<ID3DBlob*>& vs_code, std::wstring
         }
     }
 
+    vs_code = std::weak_ptr<ID3DBlob*>(vs_list_.find(file_name)->second.first);
+
     return hr;
 }
 
@@ -176,6 +180,8 @@ HRESULT ShaderManager::GetPixelShader(std::weak_ptr<ID3D11PixelShader*>& pixel_s
             );
         }
     }
+
+    pixel_shader = std::weak_ptr<ID3D11PixelShader*>(ps_list_.find(file_name)->second);
 
     return hr;
 }
