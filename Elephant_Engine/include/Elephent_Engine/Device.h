@@ -24,7 +24,7 @@ public:
 	ComPtr<ID3D11RenderTargetView>	GetRTV() { return d3d11_rtv_; };
 	ComPtr<IDXGIFactory>			GetFactory() { return dxgi_factory_; };
 	ComPtr<IDXGISwapChain>			GetSwapChain() { return dxgi_swap_chain_; };
-public:
+private:
 	HRESULT CreateDevice();
 	HRESULT CreateDXGIDevice();
 	HRESULT CreateSwapChain();
