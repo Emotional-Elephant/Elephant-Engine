@@ -20,17 +20,17 @@ int APIENTRY wWinMain(
 bool Sample::Init()
 {
 	vertex_list_.resize(4);
-	vertex_list_[0].p[0] = -1.0f;
-	vertex_list_[0].p[1] = 1.0f;
+	vertex_list_[0].p[0] = -0.5f;
+	vertex_list_[0].p[1] = 0.5f;
 	vertex_list_[0].p[2] = 0.0f;
-	vertex_list_[1].p[0] = 1.0f;
-	vertex_list_[1].p[1] = 1.0f;
+	vertex_list_[1].p[0] = 0.5f;
+	vertex_list_[1].p[1] = 0.5f;
 	vertex_list_[1].p[2] = 0.0f;
-	vertex_list_[2].p[0] = -1.0f;
-	vertex_list_[2].p[1] = -1.0f;
+	vertex_list_[2].p[0] = -0.5f;
+	vertex_list_[2].p[1] = -0.5f;
 	vertex_list_[2].p[2] = 0.0f;
-	vertex_list_[3].p[0] = 1.0f;
-	vertex_list_[3].p[1] = -1.0f;
+	vertex_list_[3].p[0] = 0.5f;
+	vertex_list_[3].p[1] = -0.5f;
 	vertex_list_[3].p[2] = 0.0f;
 
 	vertex_list_[0].c[0] = 1.0f;
@@ -94,9 +94,7 @@ bool Sample::Init()
 		&index_buffer_);
 
 	HRESULT hr;
-	std::weak_ptr<ID3DBlob*> pVSCode;
-	hr = I_Shader.GetVSCode(pVSCode, vs_name_, vs_func_name_);
-	if (FAILED(hr)) return hr;
+	ComPtr<ID3DBlob> pVSCode = I_Shader.GetVSCode(vs_name_, vs_func_name_);
 
 	D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
@@ -108,8 +106,8 @@ bool Sample::Init()
 	hr = I_Device.GetDevice()->CreateInputLayout(
 		ied,
 		NumElements,
-		(*pVSCode.lock())->GetBufferPointer(),
-		(*pVSCode.lock())->GetBufferSize(),
+		pVSCode->GetBufferPointer(),
+		pVSCode->GetBufferSize(),
 		&vertex_layout_);
 
 	return true;
@@ -123,17 +121,15 @@ bool Sample::Frame()
 bool Sample::Render()
 {
 	HRESULT hr;
-	std::weak_ptr<ID3D11VertexShader*> vertex_shader;
-	hr = I_Shader.GetVertexShader(vertex_shader, vs_name_, vs_func_name_);
-	if (FAILED(hr)) return false;
+	ComPtr<ID3D11VertexShader> vertex_shader;
+	vertex_shader = I_Shader.GetVertexShader(vs_name_, vs_func_name_);
 
-	std::weak_ptr<ID3D11PixelShader*> pixel_shader;
-	hr = I_Shader.GetPixelShader(pixel_shader, ps_name_, ps_func_name_);
-	if (FAILED(hr)) return false;
+	ComPtr<ID3D11PixelShader> pixel_shader;
+	pixel_shader = I_Shader.GetPixelShader(ps_name_, ps_func_name_);
 
 	I_Device.GetDeviceContext()->IASetInputLayout(vertex_layout_);
-	I_Device.GetDeviceContext()->VSSetShader(*(vertex_shader.lock()), NULL, 0);
-	I_Device.GetDeviceContext()->PSSetShader(*(pixel_shader.lock()), NULL, 0);
+	I_Device.GetDeviceContext()->VSSetShader(vertex_shader.Get(), NULL, 0);
+	I_Device.GetDeviceContext()->PSSetShader(pixel_shader.Get(), NULL, 0);
 	UINT stride = sizeof(SimpleVertex);
 	UINT offset = 0;
 	I_Device.GetDeviceContext()->IASetVertexBuffers(0, 1,
