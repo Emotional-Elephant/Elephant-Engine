@@ -44,6 +44,7 @@ ComPtr<ID3D11VertexShader> ShaderManager::GetVertexShader(std::wstring file_name
         &vertex_shader_ptr);
     assert(SUCCEEDED(hr));
 
+    ComPtr<ID3D11VertexShader> vertex_shader_comptr = ComPtr<ID3D11VertexShader>(vertex_shader_ptr);
     if (vertex_shader_ptr)
     {
         vs_list_.insert(
@@ -51,13 +52,13 @@ ComPtr<ID3D11VertexShader> ShaderManager::GetVertexShader(std::wstring file_name
                 file_name,
                 {
                     ComPtr<ID3DBlob>(vs_code_ptr),
-                    ComPtr<ID3D11VertexShader>(vertex_shader_ptr)
+                    vertex_shader_comptr
                 }
             }
         );
     }
 
-    return vs_list_.find(file_name)->second.second;
+    return vertex_shader_comptr;
 }
 
 ComPtr<ID3DBlob> ShaderManager::GetVSCode(std::wstring file_name, std::string func_name)
@@ -104,20 +105,21 @@ ComPtr<ID3DBlob> ShaderManager::GetVSCode(std::wstring file_name, std::string fu
         &vertex_shader_ptr);
     assert(SUCCEEDED(hr));
 
+    ComPtr<ID3DBlob> vs_code_comptr = ComPtr<ID3DBlob>(vs_code_ptr);
     if (vertex_shader_ptr)
     {
         vs_list_.insert(
             {
                 file_name,
                 {
-                    ComPtr<ID3DBlob>(vs_code_ptr),
+                    vs_code_comptr,
                     ComPtr<ID3D11VertexShader>(vertex_shader_ptr)
                 }
             }
         );
     }
 
-    return vs_list_.find(file_name)->second.first;
+    return vs_code_comptr;
 }
 
 ComPtr<ID3D11PixelShader> ShaderManager::GetPixelShader(std::wstring file_name, std::string func_name)
@@ -164,6 +166,7 @@ ComPtr<ID3D11PixelShader> ShaderManager::GetPixelShader(std::wstring file_name, 
         &pixel_shader_ptr);
     assert(SUCCEEDED(hr));
 
+    ComPtr<ID3D11PixelShader> pixel_shader_comptr = ComPtr<ID3D11PixelShader>(pixel_shader_ptr);
     if (pixel_shader_ptr)
     {
         ps_list_.insert(
@@ -174,7 +177,7 @@ ComPtr<ID3D11PixelShader> ShaderManager::GetPixelShader(std::wstring file_name, 
         );
     }
 
-    return ps_list_.find(file_name)->second;
+    return pixel_shader_comptr;
 }
 
 bool ShaderManager::Release()

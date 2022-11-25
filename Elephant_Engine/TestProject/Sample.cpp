@@ -20,17 +20,17 @@ int APIENTRY wWinMain(
 bool Sample::Init()
 {
 	vertex_list_.resize(4);
-	vertex_list_[0].p[0] = -1.0f;
-	vertex_list_[0].p[1] = 1.0f;
+	vertex_list_[0].p[0] = -0.5f;
+	vertex_list_[0].p[1] = 0.5f;
 	vertex_list_[0].p[2] = 0.0f;
-	vertex_list_[1].p[0] = 1.0f;
-	vertex_list_[1].p[1] = 1.0f;
+	vertex_list_[1].p[0] = 0.5f;
+	vertex_list_[1].p[1] = 0.5f;
 	vertex_list_[1].p[2] = 0.0f;
-	vertex_list_[2].p[0] = -1.0f;
-	vertex_list_[2].p[1] = -1.0f;
+	vertex_list_[2].p[0] = -0.5f;
+	vertex_list_[2].p[1] = -0.5f;
 	vertex_list_[2].p[2] = 0.0f;
-	vertex_list_[3].p[0] = 1.0f;
-	vertex_list_[3].p[1] = -1.0f;
+	vertex_list_[3].p[0] = 0.5f;
+	vertex_list_[3].p[1] = -0.5f;
 	vertex_list_[3].p[2] = 0.0f;
 
 	vertex_list_[0].c[0] = 1.0f;
