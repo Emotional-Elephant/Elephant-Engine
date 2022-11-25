@@ -1,7 +1,4 @@
 # Elephant-Engine
-
-# DirectX로 구성한 게임 엔진
-
 - [엔진의 주요 요소](#엔진의-주요-요소)
 	- [EngineCore](#EngineCore)
 		- [개요](#EngineCore-개요)
