@@ -5,9 +5,10 @@
 #include <unordered_map>
 #include "ITableData.h"
 
-class TestData : ITableData
+class TestData : public ITableData
 {
  public:
+  int id;
   bool test1;
   short test2;
   unsigned short test3;

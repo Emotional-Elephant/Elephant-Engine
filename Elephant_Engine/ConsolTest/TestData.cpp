@@ -3,10 +3,15 @@
 
 void TestData::Serialize(std::unordered_map<std::string, std::string>& data) 
 {
-  auto iter = data.find("test1");
+  auto iter = data.find("id");
   if (iter != data.end())
   {
-	  test1 = Lexical_cast<bool>(iter->second);
+	  id = Lexical_cast<int>(iter->second);
+  }
+  iter = data.find("test1");
+  if (iter != data.end())
+  {
+	  test1 = Lexical_cast_boolean(iter->second);
   }
   iter = data.find("test2");
   if (iter != data.end())
@@ -64,7 +69,7 @@ void TestData::Serialize(std::unordered_map<std::string, std::string>& data)
 	  std::vector<std::string> result = Split(iter->second, '|');
 	  for (auto& data : result)
 	  {
-		  test12.push_back(Lexical_cast<bool>(data));
+		  test12.push_back(Lexical_cast_boolean(data));
 	  }
   }
   iter = data.find("test13");

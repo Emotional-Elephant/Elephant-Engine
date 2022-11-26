@@ -20,7 +20,7 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 	std::vector<std::string> fields;
 	std::vector<int> exceptIndex;
 	int row = 0;
-	while (ifs.getline(line))
+	while (std::getline(ifs, line))
 	{
 		std::vector<std::string> cols;
 		cols = Split(line, ',');
@@ -34,7 +34,7 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 				}
 				else
 				{
-					fields.push_back(i);
+					fields.push_back(cols[i]);
 				}
 			}
 		}
@@ -46,13 +46,13 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 
 		for (auto index : exceptIndex)
 		{
-			cols.erase(index);
+			cols.erase(cols.begin() + index);
 		}
 
 		std::unordered_map<std::string, std::string> colValues;
 		for (int i = 0; i < fields.size(); ++i)
 		{
-			colValues.emplace({ fields[i], cols[i] });
+			colValues.emplace(fields[i], cols[i]);
 		}
 
 		V data;
@@ -64,6 +64,8 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 			throw new std::exception("invalid key value");
 		}
 
-		dataContainer.emplace({ key, data });
+		dataContainer.emplace(key, data);
 	}
+
+	return dataContainer;
 }
