@@ -1,19 +1,17 @@
 #pragma once
 #include "Singleton.h"
-#include "DataTableLocalLoader.h"
+#include <string>
 #include <map>
 
-template<typename T, typename V>
-class DataTable : public Singleton<DataTable<T, V>>
+template<typename K, typename V>
+class DataTable : public Singleton<DataTable<K, V>>
 {
 private:
-	std::map<T, V> rows_;
+	std::map<K, V> rows_;
 
 public:
-	bool Init(const std::string& sourcePath)
-	{
-		rows_ = DataTableLocalLoader<T, V>.Run(sourcePath);
-		return true;
-	}
+	bool Init(const std::string& sourcePath);
 };
+
+#include "DataTable.hpp"
 

@@ -148,10 +148,11 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataTable.cpp" />
-    <ClCompile Include="DataTableLocalLoader.cpp" />
+    <ClInclude Include="DataTable.hpp" />
+    <ClInclude Include="DataTableLocalLoader.hpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TestData.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

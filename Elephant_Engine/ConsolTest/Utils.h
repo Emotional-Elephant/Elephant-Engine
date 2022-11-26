@@ -1,8 +1,10 @@
 #pragma once
+
 #include <ctime>
 #include <iomanip>
 #include <string>
 #include <sstream>
+#include <vector>
 
 template <typename T>
 T Lexical_cast(const std::string& str)
@@ -14,25 +16,6 @@ T Lexical_cast(const std::string& str)
 	return var;
 }
 
-std::tm StringTotm(const std::string& str, std::string format = { "%Y-%m-%d %H:%M:%s" })
-{
-	static std::istringstream iss;
-	std::tm tm;
-	iss.str(str);
-	iss >> std::get_time(&tm, format.c_str());
-	return tm;
-}
+std::tm StringTotm(const std::string& str, std::string format = { "%Y-%m-%d %H:%M:%s" });
 
-std::vector<std::string> Split(const std::string& str, char delimiter)
-{
-	std::vector<std::string>  result;
-	std::stringstream ss(str);
-	std::string temp;
-
-	while (std::getline(ss, temp, delimiter))
-	{
-		result.push_back(temp);
-	}
-
-	return result;
-}
+std::vector<std::string> Split(const std::string& str, char delimiter);
