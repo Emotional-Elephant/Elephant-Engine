@@ -9,7 +9,7 @@
 template <typename K, typename V>
 std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 {
-	std::map<K, V> dataContainer;
+	std::map<K, V> data_container;
 	std::string line;
 	std::ifstream ifs(path);
 	if (ifs.fail())
@@ -18,7 +18,7 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 	}
 
 	std::vector<std::string> fields;
-	std::vector<int> exceptIndex;
+	std::vector<int> except_index;
 	int row = 0;
 	while (std::getline(ifs, line))
 	{
@@ -30,7 +30,7 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 			{
 				if (cols.at(i).at(0) == '~')
 				{
-					exceptIndex.push_back(i);
+					except_index.push_back(i);
 				}
 				else
 				{
@@ -44,28 +44,28 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 			continue;
 		}
 
-		for (auto index : exceptIndex)
+		for (auto index : except_index)
 		{
 			cols.erase(cols.begin() + index);
 		}
 
-		std::unordered_map<std::string, std::string> colValues;
+		std::unordered_map<std::string, std::string> col_values;
 		for (int i = 0; i < fields.size(); ++i)
 		{
-			colValues.emplace(fields[i], cols[i]);
+			col_values.emplace(fields[i], cols[i]);
 		}
 
 		V data;
-		data.Serialize(colValues);
+		data.Serialize(col_values);
 
 		K key = Lexical_cast<K>(cols[0]);
-		if (dataContainer.contains(key) == true)
+		if (data_container.contains(key) == true)
 		{
 			throw new std::exception("invalid key value");
 		}
 
-		dataContainer.emplace(key, data);
+		data_container.emplace(key, data);
 	}
 
-	return dataContainer;
+	return data_container;
 }

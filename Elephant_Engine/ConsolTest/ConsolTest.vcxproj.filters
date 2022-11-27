@@ -27,7 +27,7 @@
     <ClInclude Include="DataTableLocalLoader.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ITableData.h">
+    <ClInclude Include="TableDataIterface.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">

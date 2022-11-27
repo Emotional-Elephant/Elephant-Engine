@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include "ITableData.h"
+#include "TableDataIterface.h"
 
-class TestData : public ITableData
+class TestData : public TableDataInterface
 {
  public:
   int id;
