@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include "TableDataIterface.h"
+#include "DataTable.h"
 
 class TestData : public TableDataInterface
 {

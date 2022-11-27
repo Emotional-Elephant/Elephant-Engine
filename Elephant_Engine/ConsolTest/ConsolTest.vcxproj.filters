@@ -39,6 +39,15 @@
     <ClInclude Include="DataTableLocalLoader.hpp">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TableManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientTableManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestData.cpp">
@@ -48,6 +57,12 @@
       <Filter>헤더 파일</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TableLoadAll.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TableManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
