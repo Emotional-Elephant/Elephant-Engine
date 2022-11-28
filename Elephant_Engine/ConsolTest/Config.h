@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include <filesystem>
+#include <string>
 
 #include "Singleton.h"
 
@@ -10,6 +10,5 @@ public:
 	std::string local_path_;
 
 public:
-	Config() : local_path_{ std::filesystem::current_path().generic_string() }
-	{}
+	Config() : local_path_{ std::filesystem::current_path().generic_string() } {}
 };

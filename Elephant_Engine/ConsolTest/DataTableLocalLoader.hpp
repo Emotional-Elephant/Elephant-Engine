@@ -1,13 +1,15 @@
-#include "DataTableLocalLoader.h"
-#include "Utils.h"
-#include <string>
 #include <fstream>
 #include <stdexcept>
-#include <vector>
+#include <string>
 #include <unordered_map>
+#include <vector>
+
+#include "DataTableLocalLoader.h"
+#include "Utils.h"
 
 template <typename K, typename V>
-std::map<K, std::shared_ptr<V>> DataTableLocalLoader<K, V>::Run(const std::string& path)
+std::map<K, std::shared_ptr<V>> DataTableLocalLoader<K, V>::Run(
+	const std::string& path)
 {
 	std::map<K, std::shared_ptr<V>> data_container;
 	std::string line;

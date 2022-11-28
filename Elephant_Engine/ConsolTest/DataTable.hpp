@@ -1,6 +1,7 @@
+#include <string>
+
 #include "DataTable.h"
 #include "DataTableLocalLoader.h"
-#include <string>
 
 template <typename K, typename V>
 bool DataTable<K, V>::Init(const std::string& sourcePath)
@@ -32,7 +33,8 @@ std::weak_ptr<V> DataTable<K, V>::GetData(K key)
 }
 
 template <typename K, typename V>
-std::vector<std::weak_ptr<V>> DataTable<K, V>::GetData(std::function<bool(std::shared_ptr<V>)> match)
+std::vector<std::weak_ptr<V>> DataTable<K, V>::GetData(
+	std::function<bool(std::shared_ptr<V>)> match)
 {
 	std::vector<std::weak_ptr<V>> result;
 	for (auto& data : rows_)

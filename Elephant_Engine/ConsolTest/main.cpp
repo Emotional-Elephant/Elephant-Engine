@@ -1,6 +1,6 @@
+#include "ClientTableManager.h"
 #include "DataTable.h"
 #include "TestData.h"
-#include "ClientTableManager.h"
 
 int main()
 {

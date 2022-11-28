@@ -2,11 +2,12 @@
 
 #include <ctime>
 #include <iomanip>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
 
-std::tm StringTotm(const std::string& str, std::string format = { "%Y-%m-%d %H:%M:%s" });
+std::tm StringTotm(const std::string& str,
+	std::string format = { "%Y-%m-%d %H:%M:%s" });
 
 std::vector<std::string> Split(const std::string& str, char delimiter);
 

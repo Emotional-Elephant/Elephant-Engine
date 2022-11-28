@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
-#include <string>
 #include <memory>
+#include <string>
 
 template <typename K, typename V>
 class DataTableLocalLoader

@@ -1,9 +1,9 @@
-#include "TableManager.h"
-#include "Config.h"
-#include "DataTable.h"
-#include "TestData.h"
 #include <memory>
 
+#include "Config.h"
+#include "DataTable.h"
+#include "TableManager.h"
+#include "TestData.h"
 
 void TableManager::LoadAll()
 {

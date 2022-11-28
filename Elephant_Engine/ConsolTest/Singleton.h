@@ -1,6 +1,7 @@
 #pragma once
 
-template<class T> class Singleton
+template <class T>
+class Singleton
 {
 public:
 	static T& GetInstance()
@@ -9,4 +10,3 @@ public:
 		return theSingleInstance;
 	}
 };
-

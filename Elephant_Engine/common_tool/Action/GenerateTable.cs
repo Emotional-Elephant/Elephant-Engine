@@ -77,6 +77,17 @@ namespace CommonTool.Action
                     }
 
                     if (Directory.Exists(outputPath) == false)
+                    {
+                        Directory.CreateDirectory(outputPath);
+                    }
+
+                    using (var streamWriter = new StreamWriter($"{outputPath}/{title}.h"))
+                    {
+                        streamWriter.WriteLine("#include <string>");
+                        streamWriter.WriteLine("#include <unordered_map>");
+                        streamWriter.WriteLine("#include <vector>");
+                        streamWriter
+                    }
                 }
             }
             catch (Exception e)
