@@ -4,7 +4,7 @@
 class TableManager
 {
 public:
-	void Init();
+	virtual void Init() final;
 private:
 	virtual void LoadAll() final;
 	virtual void LoadComplete() = 0;

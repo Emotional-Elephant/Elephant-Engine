@@ -153,8 +153,9 @@
   <ItemGroup>
     <ClInclude Include="DataTable.hpp" />
     <ClInclude Include="DataTableLocalLoader.hpp" />
+    <ClCompile Include="ClientTableManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TableLoadAll.cpp" />
+    <ClCompile Include="TableManagerLoadAll.cpp" />
     <ClCompile Include="TableManager.cpp" />
     <ClCompile Include="TestData.cpp" />
     <ClCompile Include="Utils.cpp" />

@@ -59,10 +59,13 @@
     <ClCompile Include="Utils.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="TableLoadAll.cpp">
+    <ClCompile Include="TableManagerLoadAll.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="TableManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientTableManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

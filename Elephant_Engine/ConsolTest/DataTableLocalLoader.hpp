@@ -7,9 +7,9 @@
 #include <unordered_map>
 
 template <typename K, typename V>
-std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
+std::map<K, std::shared_ptr<V>> DataTableLocalLoader<K, V>::Run(const std::string& path)
 {
-	std::map<K, V> data_container;
+	std::map<K, std::shared_ptr<V>> data_container;
 	std::string line;
 	std::ifstream ifs(path);
 	if (ifs.fail())
@@ -55,8 +55,8 @@ std::map<K, V> DataTableLocalLoader<K, V>::Run(const std::string& path)
 			col_values.emplace(fields[i], cols[i]);
 		}
 
-		V data;
-		data.Serialize(col_values);
+		std::shared_ptr<V> data = std::make_shared<V>();
+		data->Serialize(col_values);
 
 		K key = Lexical_cast<K>(cols[0]);
 		if (data_container.contains(key) == true)

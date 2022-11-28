@@ -2,6 +2,7 @@
 #include "Config.h"
 #include "DataTable.h"
 #include "TestData.h"
+#include <memory>
 
 
 void TableManager::LoadAll()

@@ -1,9 +1,9 @@
 #include "DataTable.h"
 #include "TestData.h"
+#include "ClientTableManager.h"
 
 int main()
 {
-	TestData a;
-	//DataTable<int, TestData>::GetInstance().Init("TestData.csv");
+	ClientTableManager::GetInstance().Init();
 	return 0;
 }
