@@ -144,7 +144,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="DataTable.h" />
     <ClInclude Include="DataTableLocalLoader.h" />
-    <ClInclude Include="TableDataIterface.h" />
+    <ClInclude Include="TableDataInterface.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="TableManager.h" />
     <ClInclude Include="TestData.h" />

@@ -83,10 +83,12 @@ namespace CommonTool.Action
 
                     using (var streamWriter = new StreamWriter($"{outputPath}/{title}.h"))
                     {
+                        streamWriter.WriteLine("#include <ctime>");
                         streamWriter.WriteLine("#include <string>");
                         streamWriter.WriteLine("#include <unordered_map>");
                         streamWriter.WriteLine("#include <vector>");
-                        streamWriter
+                        streamWriter.WriteLine();
+                        streamWriter.WriteLine("#include "TableDataIt)
                     }
                 }
             }
