@@ -35,4 +35,9 @@ public:
 
 public:
 	virtual void Serialize(std::unordered_map<std::string, std::string>& data);
+	static class init_
+	{
+	public:
+		init_();
+	} _initializer;
 };

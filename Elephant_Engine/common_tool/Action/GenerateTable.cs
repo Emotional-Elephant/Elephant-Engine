@@ -88,7 +88,52 @@ namespace CommonTool.Action
                         streamWriter.WriteLine("#include <unordered_map>");
                         streamWriter.WriteLine("#include <vector>");
                         streamWriter.WriteLine();
-                        streamWriter.WriteLine("#include "TableDataIt)
+                        streamWriter.WriteLine("#include \"TableDataInterface.h\"");
+                        streamWriter.WriteLine();
+                        streamWriter.WriteLine($"class {title} : public TableDataInterface");
+                        streamWriter.WriteLine("{");
+                        streamWriter.WriteLine("public:");
+                        for (int i = 0; i < cols.Count; ++i)
+                        {
+                            if (cols[i].Name.StartsWith("~") == true)
+                            {
+                                continue;
+                            }
+
+                            if (cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+                            else if (cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+                            else if (cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+                            else if (cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+                            else if (cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+                            else if (cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+                            else if(cols[i].Name.ToLower() == "array_bool")
+                            {
+
+                            }
+
+
+                        }
+                        streamWriter.WriteLine("public:");
+                        streamWriter.WriteLine("\tvirtual void Serialize(std::unordered_map<std::string, std::string>& data);");
+                        streamWriter.WriteLine("};");
                     }
                 }
             }

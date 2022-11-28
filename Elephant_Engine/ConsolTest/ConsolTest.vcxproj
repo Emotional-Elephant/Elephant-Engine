@@ -143,6 +143,7 @@
     <ClInclude Include="ClientTableManager.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DataTable.h" />
+    <ClInclude Include="DataTableInterface.h" />
     <ClInclude Include="DataTableLocalLoader.h" />
     <ClInclude Include="TableDataInterface.h" />
     <ClInclude Include="Singleton.h" />

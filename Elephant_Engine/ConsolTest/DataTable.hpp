@@ -3,6 +3,18 @@
 #include "DataTable.h"
 #include "DataTableLocalLoader.h"
 
+template<typename K, typename V>
+void DataTable<K, V>::set_name(const std::string& name)
+{
+	name_ = name;
+}
+
+template<typename K, typename V>
+std::string DataTable<K, V>::name()
+{
+	return name_;
+}
+
 template <typename K, typename V>
 bool DataTable<K, V>::Init(const std::string& sourcePath)
 {

@@ -1,6 +1,15 @@
 #include "TestData.h"
-
+#include "TableManager.h"
+#include "DataTable.h"
 #include "Utils.h"
+
+TestData::init_ TestData::_initializer;
+
+TestData::init_::init_()
+{
+	DataTable<int, TestData>::GetInstance().set_name("TestData");
+	TableManager::GetInstance().Add(&DataTable<int, TestData>::GetInstance());
+}
 
 void TestData::Serialize(std::unordered_map<std::string, std::string>& data)
 {
