@@ -11,14 +11,29 @@ namespace CommonTool
             try
             {
                 Parameter param = new Parameter(args);
-                Console.WriteLine($"[gamebase] startup gamebase tool");
-                Console.WriteLine($"[gamebase] version : v1.0.8");
-                Console.WriteLine($"[gamebase] args : {string.Join(" ", args)}");
+                Console.WriteLine($"[Elephant] startup common_tool");
+                Console.WriteLine($"[Elephant] version : v1.0.0");
+                Console.WriteLine($"[Elephant] args : {string.Join(" ", args)}");
 
                 Dictionary<string, ActionBase> dicAction = new Dictionary<string, ActionBase>
                 {
-                    {"gen:table", new GenerateTable(param)},
+                    {"gen:table", new GenerateTable(param)}
+                };
+
+                if (args.Length <= 2)
+                {
+                    throw new Exception($"not found action. actionName: {string.Join(" ", args)}");
                 }
+
+                string actionName = args[0] + ":" + args[1];
+
+                ActionBase action;
+                if (dicAction.TryGetValue(actionName, out action) == false)
+                {
+                    throw new Exception($"not found action. actionName: {actionName}");
+                }
+
+                action.Run();
             }
             catch (Exception ex)
             {
