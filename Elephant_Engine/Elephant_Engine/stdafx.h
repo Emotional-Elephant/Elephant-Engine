@@ -10,3 +10,5 @@
 
 #include"Device.h"
 #include"Singleton.h"
+
+#include"TMath.h"
