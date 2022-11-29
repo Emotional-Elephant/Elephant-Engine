@@ -17,12 +17,13 @@ public:
 	RECT				GetRTWindow() const { return rt_window_; }
 	RECT				GetRTClient() const { return rt_client_; }
 	DWORD				GetCSStyle() const { return cs_style_; }
-public:
-	bool				SetWindow(HINSTANCE hinstance, const WCHAR* title, UINT width = 1024, UINT height = 768);
+private:
 	ATOM				RegisterWNDClass();
 	BOOL				InitInstance(const WCHAR* title, UINT width, UINT height);
-	bool				Run();
 	void				CenterWindow();
+public:
+	bool				SetWindow(HINSTANCE hinstance, const WCHAR* title, UINT width = 1024, UINT height = 768);
+	bool				Run();
 public:
 	virtual bool		Init();
 	virtual bool		Frame();

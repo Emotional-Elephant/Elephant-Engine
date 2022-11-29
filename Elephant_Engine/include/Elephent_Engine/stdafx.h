@@ -6,5 +6,7 @@
 #include<string>
 #include<unordered_map>
 
+#include<cassert>
+
 #include"Device.h"
 #include"Singleton.h"
