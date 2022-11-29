@@ -133,6 +133,7 @@ copy "Elephent_Engine_d.lib" "..\\lib\\"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,6 +159,7 @@ copy "Elephent_Engine_d.lib" "..\\lib\\"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -187,17 +189,28 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TableManager.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="DataTable.h" />
+    <ClInclude Include="DataTable.hpp" />
+    <ClInclude Include="DataTableInterface.h" />
+    <ClInclude Include="DataTableLocalLoader.h" />
+    <ClInclude Include="DataTableLocalLoader.hpp" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="EngineCore.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TableDataInterface.h" />
+    <ClInclude Include="TableManager.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Writer.h" />
   </ItemGroup>
