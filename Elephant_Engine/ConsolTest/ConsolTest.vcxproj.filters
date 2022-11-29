@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TestData.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="DataTable.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -51,11 +48,14 @@
     <ClInclude Include="DataTableInterface.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="ConstantData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TestData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestData.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -66,6 +66,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TestData.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

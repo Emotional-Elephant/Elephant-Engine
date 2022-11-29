@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="ClientTableManager.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="ConstantData.h" />
     <ClInclude Include="DataTable.h" />
     <ClInclude Include="DataTableInterface.h" />
     <ClInclude Include="DataTableLocalLoader.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="DataTable.hpp" />
     <ClInclude Include="DataTableLocalLoader.hpp" />
     <ClCompile Include="ClientTableManager.cpp" />
+    <ClCompile Include="ConstantData.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TableManager.cpp" />
     <ClCompile Include="TestData.cpp" />

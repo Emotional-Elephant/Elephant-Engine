@@ -201,7 +201,7 @@ namespace CommonTool.Action
                     }
                     using (var streamWriter = new StreamWriter($"{outputPath}/{title}.cpp"))
                     {
-                        streamWriter.WriteLine($"#include \"{title}\".h");
+                        streamWriter.WriteLine($"#include \"{title}.h\"");
                         streamWriter.WriteLine("#include \"TableManager.h\"");
                         streamWriter.WriteLine("#include \"DataTable.h\"");
                         streamWriter.WriteLine("#include \"Utils.h\"");
