@@ -1,72 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="EngineCore">
+      <UniqueIdentifier>{60fd7079-7f25-4bd0-b222-7d29dd35f186}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Util">
+      <UniqueIdentifier>{a6016aae-70b3-44df-8777-2c5d34ca001a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Components">
+      <UniqueIdentifier>{ee91a266-9c8a-40a3-acb9-1651a20307d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{6570b8be-6c75-41ba-80f5-57dfad0c1dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patterns">
+      <UniqueIdentifier>{69a6f013-53a6-41b9-a95f-026f4136666e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{a3c9604e-a546-4ea0-8d0c-7359b2b8c14e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Singleton.h">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="EngineCore.cpp">
+      <Filter>EngineCore</Filter>
     </ClCompile>
     <ClCompile Include="Device.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>EngineCore</Filter>
     </ClCompile>
-    <ClCompile Include="EngineCore.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Window.cpp">
+      <Filter>EngineCore</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Util</Filter>
     </ClCompile>
     <ClCompile Include="Writer.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
     <ClCompile Include="ShaderManager.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.h">
+      <Filter>Patterns</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>pch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="EngineCore.h">
+      <Filter>EngineCore</Filter>
     </ClInclude>
     <ClInclude Include="Device.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>EngineCore</Filter>
     </ClInclude>
-    <ClInclude Include="EngineCore.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Window.h">
+      <Filter>EngineCore</Filter>
     </ClInclude>
     <ClInclude Include="Writer.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Util</Filter>
     </ClInclude>
     <ClInclude Include="ShaderManager.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Resources</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>pch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
