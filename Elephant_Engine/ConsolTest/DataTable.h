@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <functional>
+#include <map>
+
 #include "DataTableInterface.h"
 #include "TableDataInterface.h"
 #include "Singleton.h"

@@ -1,3 +1,6 @@
+#include <ctime>
+#include <iomanip>
+
 #include "Utils.h"
 
 std::tm StringTotm(const std::string& str, std::string format)
