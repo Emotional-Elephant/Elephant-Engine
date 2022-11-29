@@ -16,6 +16,7 @@ std::map<K, std::shared_ptr<V>> DataTableLocalLoader<K, V>::Run(
 	std::ifstream ifs(path);
 	if (ifs.fail())
 	{
+		ifs.close();
 		throw std::invalid_argument(path);
 	}
 
@@ -68,6 +69,6 @@ std::map<K, std::shared_ptr<V>> DataTableLocalLoader<K, V>::Run(
 
 		data_container.emplace(key, data);
 	}
-
+	ifs.close();
 	return data_container;
 }
