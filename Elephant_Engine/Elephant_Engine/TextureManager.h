@@ -16,7 +16,7 @@ class TextureManager: public Singleton<TextureManager>
 private:
 	std::unordered_map<std::wstring, std::shared_ptr<Texture>> texture_list_;
 public:
-	ComPtr<ID3D11ShaderResourceView>	LoadSRV(std::wstring file_name);
+	ComPtr<ID3D11ShaderResourceView>	GetSRV(std::wstring file_name);
 	bool								Release();
 private:
 	TextureManager() {};

@@ -19,6 +19,12 @@
     <Filter Include="pch">
       <UniqueIdentifier>{a3c9604e-a546-4ea0-8d0c-7359b2b8c14e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ComponentManagers">
+      <UniqueIdentifier>{36a1ec9f-85b2-418b-97b7-62d75b488c66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{761eea18-982e-4c55-ada0-6d22beecdb26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -48,11 +54,18 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>pch</Filter>
     </ClCompile>
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="TableManager.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Renderable.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>ComponentManagers</Filter>
+    </ClCompile>
+    <ClCompile Include="TMath.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,32 +93,25 @@
     <ClInclude Include="stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DataTable.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DataTable.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DataTableInterface.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DataTableLocalLoader.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DataTableLocalLoader.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="TableDataInterface.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="DataTable.h" />
+    <ClInclude Include="DataTable.hpp" />
+    <ClInclude Include="DataTableInterface.h" />
+    <ClInclude Include="DataTableLocalLoader.h" />
+    <ClInclude Include="DataTableLocalLoader.hpp" />
+    <ClInclude Include="TableDataInterface.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="TableManager.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Renderable.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>ComponentManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="TMath.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

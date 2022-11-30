@@ -12,3 +12,4 @@ public:
 public:
 	Config() : local_path_{ std::filesystem::current_path().generic_string() } {}
 };
+

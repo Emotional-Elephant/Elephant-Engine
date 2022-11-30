@@ -94,6 +94,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../include/dxtk</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -184,6 +186,8 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="EngineCore.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Renderable.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="Singleton.h" />
     <ClCompile Include="stdafx.cpp">
@@ -191,6 +195,7 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     </ClCompile>
     <ClCompile Include="TableManager.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TMath.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Writer.cpp" />
@@ -205,11 +210,14 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     <ClInclude Include="Device.h" />
     <ClInclude Include="EngineCore.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Renderable.h" />
+    <ClInclude Include="RenderManager.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TableDataInterface.h" />
     <ClInclude Include="TableManager.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TMath.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Writer.h" />
