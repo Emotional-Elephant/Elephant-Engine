@@ -6,6 +6,7 @@
 Renderable::Renderable()
 {
 	RegisterComponent();
+	Init();
 }
 
 void Renderable::RegisterComponent()
@@ -62,7 +63,7 @@ HRESULT Renderable::CreateConstantBuffer()
 	HRESULT hr;
 	D3D11_BUFFER_DESC       bd;
 	ZeroMemory(&bd, sizeof(bd));
-	bd.ByteWidth = sizeof(VS_CONSTANT_BUFFER) * 1;
+	bd.ByteWidth = sizeof(VS_CONSTANT_BUFFER_RENDER) * 1;
 	bd.Usage = D3D11_USAGE_DEFAULT;
 	bd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 

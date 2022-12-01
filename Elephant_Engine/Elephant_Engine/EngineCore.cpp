@@ -2,7 +2,7 @@
 
 bool EngineCore::EngineInit()
 {
-    I_Window.Init();
+    Window::GetInstance().Init();
     Device::GetInstance().Init();
     Writer::GetInstance().Init();
     IDXGISurface1* pBackBuffer;
@@ -17,7 +17,7 @@ bool EngineCore::EngineInit()
 
 bool EngineCore::EngineFrame()
 {
-    I_Window.Frame();
+    Window::GetInstance().Frame();
     Device::GetInstance().Frame();
     Writer::GetInstance().Frame();
     Input::GetInstance().Frame();
@@ -43,7 +43,7 @@ bool EngineCore::EngineRelease()
     Input::GetInstance().Release();
     Writer::GetInstance().Release();
     Device::GetInstance().Release();
-    I_Window.Release();
+    Window::GetInstance().Release();
     return true;
 }
 
@@ -51,7 +51,7 @@ bool EngineCore::Run()
 {
     EngineInit();
     while (is_running_) {
-        if (I_Window.Run() == true) {
+        if (Window::GetInstance().Run() == true) {
             EngineFrame();
             EngineRender();
         }

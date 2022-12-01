@@ -22,7 +22,7 @@ public:
 	};
 };
 
-struct VS_CONSTANT_BUFFER
+struct VS_CONSTANT_BUFFER_RENDER
 {
 	TMatrix		world_matrix_;
 	TVector4	light_vector_;
@@ -45,7 +45,7 @@ protected:
 	float						pitch_;
 	float						roll_;
 private:
-	VS_CONSTANT_BUFFER			constant_buffer_data_;
+	VS_CONSTANT_BUFFER_RENDER	constant_buffer_data_;
 	ComPtr<ID3D11Buffer>		constant_buffer_;
 	ComPtr<ID3D11Buffer>		vertex_buffer_;
 	ComPtr<ID3D11Buffer>		index_buffer_;
@@ -62,10 +62,10 @@ private:
 	HRESULT     CreateVertexLayout();
 	void		UpdateConstantBuffer();
 public:
-	bool		Init();
-	bool		Frame();
-	bool		Render();
-	bool		Release();
+	virtual bool		Init();
+	bool				Frame();
+	bool				Render();
+	bool				Release();
 protected:
 	virtual void		SetVertexData() {};
 	virtual void		SetIndexData() {};

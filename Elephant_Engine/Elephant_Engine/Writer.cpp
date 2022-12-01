@@ -92,7 +92,7 @@ bool Writer::Set(IDXGISurface1* dxgi_surface)
 bool Writer::Draw(float x, float y, std::wstring text, D2D1_COLOR_F color)
 {
 	id2d1_render_target_->BeginDraw();
-	D2D1_RECT_F rt = { x, y, I_Window.GetRTClient().right, I_Window.GetRTClient().bottom };
+	D2D1_RECT_F rt = { x, y, Window::GetInstance().GetRTClient().right, Window::GetInstance().GetRTClient().bottom };
 	id2d1_color_brush_->SetColor(color);
 	id2d1_color_brush_->SetOpacity(1.0f);
 	id2d1_render_target_->DrawText(text.c_str(), text.size(), id_write_text_format_.Get(), rt, id2d1_color_brush_.Get());

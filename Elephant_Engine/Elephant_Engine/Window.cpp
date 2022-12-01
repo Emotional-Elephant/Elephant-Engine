@@ -6,7 +6,7 @@ LRESULT CALLBACK WndProc(
 	WPARAM wParam,
 	LPARAM lParam)
 {
-	return I_Window.MsgProc(hWnd, message, wParam, lParam);
+	return Window::GetInstance().MsgProc(hWnd, message, wParam, lParam);
 }
 
 bool Window::SetWindow(HINSTANCE hinstance, const WCHAR* title, UINT width, UINT height)

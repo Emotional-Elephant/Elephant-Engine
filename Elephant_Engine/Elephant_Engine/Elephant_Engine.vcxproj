@@ -183,6 +183,7 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="EngineCore.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -201,6 +202,7 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DataTable.h" />
     <ClInclude Include="DataTable.hpp" />
