@@ -10,15 +10,15 @@ struct VS_CONSTANT_BUFFER_CAMERA
 
 class Camera
 {
-private:
-	TVector3			m_vPosition;
-	TVector3			m_vTarget;
-	const TVector3		m_vUp = { 0.0f, 1.0f, 0.0f };
-private:
-	float				m_fNearPlane;
-	float				m_fFarPlane;
-	float				m_fovy;
-	float				m_Aspect;
+protected:
+	TVector3			position_;
+	TVector3			target_;
+	const TVector3		up_ = { 0.0f, 1.0f, 0.0f };
+protected:
+	float				near_plane_dist_;
+	float				far_plane_dist_;
+	float				field_of_view_;
+	float				aspect_;
 private:
 	VS_CONSTANT_BUFFER_CAMERA	constant_buffer_data_;
 	ComPtr<ID3D11Buffer>		constant_buffer_;

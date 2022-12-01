@@ -18,7 +18,7 @@ HRESULT Device::CreateDevice()
         nullptr, D3D_DRIVER_TYPE_HARDWARE, NULL,
         createDeviceFlags, pFeatureLevels, 1, D3D11_SDK_VERSION,
         d3d11_device_.GetAddressOf(),
-        &pFeatureLevel,
+        NULL,
         d3d11_device_context_.GetAddressOf()
     );
 

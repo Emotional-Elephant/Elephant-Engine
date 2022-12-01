@@ -7,7 +7,7 @@ class RenderManager : public Singleton<RenderManager>
 	friend class Singleton<RenderManager>;
 	friend class Renderable;
 private:
-	std::vector<std::shared_ptr<Renderable>> render_list_;
+	std::vector<std::shared_ptr<Renderable*>> render_list_;
 
 public:
 	bool Init();

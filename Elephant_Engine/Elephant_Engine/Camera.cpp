@@ -23,16 +23,16 @@ bool Camera::Init()
 {
     SetValues();
 	HRESULT hr = CreateConstantBuffer();
-	assert(FAILED(hr));
+	assert(SUCCEEDED(hr));
 	return true;
 }
 
 bool Camera::Render()
 {
-    constant_buffer_data_.view_matrix_ = TMatrix::CreateLookAt(m_vPosition, m_vTarget, m_vUp);
-    constant_buffer_data_.view_matrix_.Transpose();
-    constant_buffer_data_.proj_matrix_ = TMatrix::CreatePerspectiveFieldOfView(m_fovy, m_Aspect, m_fNearPlane, m_fFarPlane);
-    constant_buffer_data_.proj_matrix_.Transpose();
+    constant_buffer_data_.view_matrix_ = TMatrix::CreateLookAt(position_, target_, up_);
+    constant_buffer_data_.view_matrix_ = constant_buffer_data_.view_matrix_.Transpose();
+    constant_buffer_data_.proj_matrix_ = TMatrix::CreatePerspectiveFieldOfView(field_of_view_, aspect_, near_plane_dist_, far_plane_dist_);
+    constant_buffer_data_.proj_matrix_ = constant_buffer_data_.proj_matrix_.Transpose();
     Device::GetInstance().GetDeviceContext()->UpdateSubresource(
         constant_buffer_.Get(), 0, nullptr,
         &constant_buffer_data_, 0, 0);

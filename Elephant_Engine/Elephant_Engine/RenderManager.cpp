@@ -13,7 +13,7 @@ bool RenderManager::Frame()
 bool RenderManager::Render()
 {
     for (auto render_object : render_list_)
-        render_object->Render();
+        (*render_object)->Render();
     return true;
 }
 

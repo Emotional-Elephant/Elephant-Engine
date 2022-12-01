@@ -68,6 +68,9 @@
       <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -115,5 +118,8 @@
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="TextureManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

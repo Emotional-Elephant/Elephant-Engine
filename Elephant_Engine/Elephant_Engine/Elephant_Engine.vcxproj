@@ -136,6 +136,7 @@ copy "Elephent_Engine_d.lib" "..\\lib\\"</Command>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>../include/dxtk</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -195,6 +196,7 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TableManager.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TMath.cpp" />
     <ClCompile Include="Utils.cpp" />
@@ -218,6 +220,7 @@ copy "Elephent_Engine_r.lib" "..\\lib\\"</Command>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TableDataInterface.h" />
     <ClInclude Include="TableManager.h" />
+    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TMath.h" />
     <ClInclude Include="Utils.h" />

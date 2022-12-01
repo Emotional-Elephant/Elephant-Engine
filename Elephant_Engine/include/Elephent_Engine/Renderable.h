@@ -61,8 +61,10 @@ private:
 	HRESULT		CreateConstantBuffer();
 	HRESULT     CreateVertexLayout();
 	void		UpdateConstantBuffer();
+protected:
+	virtual void		InitData() {};
 public:
-	virtual bool		Init();
+	bool				Init();
 	bool				Frame();
 	bool				Render();
 	bool				Release();

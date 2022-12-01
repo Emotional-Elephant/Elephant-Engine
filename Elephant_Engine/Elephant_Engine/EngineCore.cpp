@@ -28,9 +28,9 @@ bool EngineCore::EngineFrame()
 bool EngineCore::EngineRender()
 {
     Device::GetInstance().Render();
+    Timer::GetInstance().Render();
     Render();
     Input::GetInstance().Render();
-    Timer::GetInstance().Render();
     Writer::GetInstance().Render();
     Device::GetInstance().GetSwapChain()->Present(0, 0);
     return true;

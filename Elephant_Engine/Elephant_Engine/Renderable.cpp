@@ -6,12 +6,11 @@
 Renderable::Renderable()
 {
 	RegisterComponent();
-	Init();
 }
 
 void Renderable::RegisterComponent()
 {
-	RenderManager::GetInstance().render_list_.push_back(std::make_shared<Renderable>(*this));
+	RenderManager::GetInstance().render_list_.push_back(std::make_shared<Renderable*>(this));
 }
 
 HRESULT Renderable::CreateVertexBuffer()
@@ -124,6 +123,7 @@ void Renderable::UpdateConstantBuffer()
 
 bool Renderable::Init()
 {
+	InitData();
 	if (FAILED(CreateVertexBuffer())) {
 		return false;
 	}
@@ -154,7 +154,7 @@ bool Renderable::Render()
 {
 	ComPtr<ID3D11ShaderResourceView> pSRV = nullptr;
 	if (texture_name_ != L"") {
-		pSRV = I_Tex.GetSRV(texture_name_);
+		pSRV = TextureManager::GetInstance().GetSRV(texture_name_);
 	}
 
 	ComPtr<ID3D11VertexShader> pVS = nullptr;
@@ -169,17 +169,17 @@ bool Renderable::Render()
 	Device::GetInstance().GetDeviceContext()->IASetInputLayout(vertex_layout_.Get());
 	Device::GetInstance().GetDeviceContext()->VSSetShader(pVS.Get(), NULL, 0);
 	Device::GetInstance().GetDeviceContext()->PSSetShader(pPS.Get(), NULL, 0);
+
 	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
 	Device::GetInstance().GetDeviceContext()->IASetVertexBuffers(0, 1,
-		&vertex_buffer_, &stride, &offset);
+		vertex_buffer_.GetAddressOf(), &stride, &offset);
 	Device::GetInstance().GetDeviceContext()->IASetIndexBuffer(index_buffer_.Get(),
 		DXGI_FORMAT_R32_UINT, 0);
-
 	UpdateConstantBuffer();
 	Device::GetInstance().GetDeviceContext()->VSSetConstantBuffers(0, 1, constant_buffer_.GetAddressOf());
 
-	if (index_buffer_ == nullptr)
+	if (index_buffer_.Get() == nullptr)
 		Device::GetInstance().GetDeviceContext()->Draw(vertex_list_.size(), 0);
 	else
 		Device::GetInstance().GetDeviceContext()->DrawIndexed(index_list_.size(), 0, 0);

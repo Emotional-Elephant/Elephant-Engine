@@ -20,9 +20,7 @@ public:
 	bool								Release();
 private:
 	TextureManager() {};
-	~TextureManager();
+	~TextureManager() {};
 	TextureManager(const TextureManager&) = delete;
 	TextureManager& operator=(const TextureManager&) = delete;
 };
-
-#define I_Tex TextureManager::GetInstance()
