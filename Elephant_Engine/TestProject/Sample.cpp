@@ -68,7 +68,7 @@ bool Sample::Init()
 	D3D11_SUBRESOURCE_DATA  sd;
 	ZeroMemory(&sd, sizeof(sd));
 	sd.pSysMem = &vertex_list_.at(0);
-	I_Device.GetDevice()->CreateBuffer(
+	Device::GetInstance().GetDevice()->CreateBuffer(
 		&bd,
 		&sd,
 		&vertex_buffer_);
@@ -88,13 +88,13 @@ bool Sample::Init()
 
 	ZeroMemory(&sd, sizeof(sd));
 	sd.pSysMem = &index_list_.at(0);
-	I_Device.GetDevice()->CreateBuffer(
+	Device::GetInstance().GetDevice()->CreateBuffer(
 		&bd,
 		&sd,
 		&index_buffer_);
 
 	HRESULT hr;
-	ComPtr<ID3DBlob> pVSCode = I_Shader.GetVSCode(vs_name_, vs_func_name_);
+	ComPtr<ID3DBlob> pVSCode = ShaderManager::GetInstance().GetVSCode(vs_name_, vs_func_name_);
 
 	D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
@@ -103,7 +103,7 @@ bool Sample::Init()
 		{ "TEXTURE", 0, DXGI_FORMAT_R32G32_FLOAT, 0,28,D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
 	UINT NumElements = sizeof(ied) / sizeof(ied[0]);
-	hr = I_Device.GetDevice()->CreateInputLayout(
+	hr = Device::GetInstance().GetDevice()->CreateInputLayout(
 		ied,
 		NumElements,
 		pVSCode->GetBufferPointer(),
@@ -122,25 +122,25 @@ bool Sample::Render()
 {
 	HRESULT hr;
 	ComPtr<ID3D11VertexShader> vertex_shader;
-	vertex_shader = I_Shader.GetVertexShader(vs_name_, vs_func_name_);
+	vertex_shader = ShaderManager::GetInstance().GetVertexShader(vs_name_, vs_func_name_);
 
 	ComPtr<ID3D11PixelShader> pixel_shader;
-	pixel_shader = I_Shader.GetPixelShader(ps_name_, ps_func_name_);
+	pixel_shader = ShaderManager::GetInstance().GetPixelShader(ps_name_, ps_func_name_);
 
-	I_Device.GetDeviceContext()->IASetInputLayout(vertex_layout_);
-	I_Device.GetDeviceContext()->VSSetShader(vertex_shader.Get(), NULL, 0);
-	I_Device.GetDeviceContext()->PSSetShader(pixel_shader.Get(), NULL, 0);
+	Device::GetInstance().GetDeviceContext()->IASetInputLayout(vertex_layout_);
+	Device::GetInstance().GetDeviceContext()->VSSetShader(vertex_shader.Get(), NULL, 0);
+	Device::GetInstance().GetDeviceContext()->PSSetShader(pixel_shader.Get(), NULL, 0);
 	UINT stride = sizeof(SimpleVertex);
 	UINT offset = 0;
-	I_Device.GetDeviceContext()->IASetVertexBuffers(0, 1,
+	Device::GetInstance().GetDeviceContext()->IASetVertexBuffers(0, 1,
 		&vertex_buffer_, &stride, &offset);
-	I_Device.GetDeviceContext()->IASetIndexBuffer(index_buffer_,
+	Device::GetInstance().GetDeviceContext()->IASetIndexBuffer(index_buffer_,
 		DXGI_FORMAT_R32_UINT, 0);
 
 	if (index_buffer_ == nullptr)
-		I_Device.GetDeviceContext()->Draw(vertex_list_.size(), 0);
+		Device::GetInstance().GetDeviceContext()->Draw(vertex_list_.size(), 0);
 	else
-		I_Device.GetDeviceContext()->DrawIndexed(index_list_.size(), 0, 0);
+		Device::GetInstance().GetDeviceContext()->DrawIndexed(index_list_.size(), 0, 0);
 
 	return true;
 }

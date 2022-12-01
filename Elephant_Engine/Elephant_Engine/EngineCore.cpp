@@ -3,46 +3,46 @@
 bool EngineCore::EngineInit()
 {
     I_Window.Init();
-    I_Device.Init();
-    I_Writer.Init();
+    Device::GetInstance().Init();
+    Writer::GetInstance().Init();
     IDXGISurface1* pBackBuffer;
-    I_Device.GetSwapChain()->GetBuffer(0, __uuidof(IDXGISurface1),
+    Device::GetInstance().GetSwapChain()->GetBuffer(0, __uuidof(IDXGISurface1),
         (void**)&pBackBuffer);
-    I_Writer.Set(pBackBuffer);
+    Writer::GetInstance().Set(pBackBuffer);
     pBackBuffer->Release();
-    I_Input.Init();
-    I_Timer.Init();
+    Input::GetInstance().Init();
+    Timer::GetInstance().Init();
     return Init();
 }
 
 bool EngineCore::EngineFrame()
 {
     I_Window.Frame();
-    I_Device.Frame();
-    I_Writer.Frame();
-    I_Input.Frame();
-    I_Timer.Frame();
+    Device::GetInstance().Frame();
+    Writer::GetInstance().Frame();
+    Input::GetInstance().Frame();
+    Timer::GetInstance().Frame();
     return Frame();
 }
 
 bool EngineCore::EngineRender()
 {
-    I_Device.Render();
+    Device::GetInstance().Render();
     Render();
-    I_Input.Render();
-    I_Timer.Render();
-    I_Writer.Render();
-    I_Device.GetSwapChain()->Present(0, 0);
+    Input::GetInstance().Render();
+    Timer::GetInstance().Render();
+    Writer::GetInstance().Render();
+    Device::GetInstance().GetSwapChain()->Present(0, 0);
     return true;
 }
 
 bool EngineCore::EngineRelease()
 {
     Release();
-    I_Timer.Release();
-    I_Input.Release();
-    I_Writer.Release();
-    I_Device.Release();
+    Timer::GetInstance().Release();
+    Input::GetInstance().Release();
+    Writer::GetInstance().Release();
+    Device::GetInstance().Release();
     I_Window.Release();
     return true;
 }

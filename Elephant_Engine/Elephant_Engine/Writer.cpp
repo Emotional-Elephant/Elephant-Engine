@@ -27,11 +27,11 @@ bool Writer::Init()
 bool Writer::Frame()
 {
 #ifdef _DEBUG
-	cur_text_ = L"play time: " + std::to_wstring(I_Timer.GetTotalPlayTime()) + L"\n";
-	cur_text_ += L"FPS: " + std::to_wstring(I_Timer.GetFPS()) + L"\n";
+	cur_text_ = L"play time: " + std::to_wstring(Timer::GetInstance().GetTotalPlayTime()) + L"\n";
+	cur_text_ += L"FPS: " + std::to_wstring(Timer::GetInstance().GetFPS()) + L"\n";
 	cur_text_ += L"cur coord: ";
-	cur_text_ += std::to_wstring(I_Input.GetMousePos().x) + L", ";
-	cur_text_ += std::to_wstring(I_Input.GetMousePos().y);
+	cur_text_ += std::to_wstring(Input::GetInstance().GetMousePos().x) + L", ";
+	cur_text_ += std::to_wstring(Input::GetInstance().GetMousePos().y);
 #endif
 	return true;
 }
@@ -51,7 +51,7 @@ HRESULT Writer::CreateDXResource()
 {
 	Init();
 	IDXGISurface1* pBackBuffer;
-	I_Device.GetSwapChain()->GetBuffer(0, __uuidof(IDXGISurface1),
+	Device::GetInstance().GetSwapChain()->GetBuffer(0, __uuidof(IDXGISurface1),
 		(void**)&pBackBuffer);
 	Set(pBackBuffer);
 	pBackBuffer->Release();

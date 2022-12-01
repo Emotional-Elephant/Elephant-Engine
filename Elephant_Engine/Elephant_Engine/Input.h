@@ -29,4 +29,3 @@ private:
 	Input(const Input&) = delete;
 	Input& operator=(const Input&) = delete;
 };
-#define I_Input Input::GetInstance()

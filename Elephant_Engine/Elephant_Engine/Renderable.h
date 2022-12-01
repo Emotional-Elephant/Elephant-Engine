@@ -1,20 +1,20 @@
 #pragma once
 #include "stdafx.h"
 
-struct SimpleVertex
+struct Vertex
 {
 	TVector3 p;
 	TVector3 n;
 	TVector4 c;
 	TVector2 t;
 public:
-	SimpleVertex() {};
-	SimpleVertex(TVector3 p, TVector4 c, TVector2 t) {
+	Vertex() {};
+	Vertex(TVector3 p, TVector4 c, TVector2 t) {
 		this->p = p;
 		this->c = c;
 		this->t = t;
 	};
-	SimpleVertex(TVector3 p, TVector3 n, TVector4 c, TVector2 t) {
+	Vertex(TVector3 p, TVector3 n, TVector4 c, TVector2 t) {
 		this->p = p;
 		this->n = n;
 		this->c = c;
@@ -36,7 +36,7 @@ protected:
 	std::string					vertex_function_name_ = "";
 	std::string					pixel_function_name = "";
 	std::wstring				texture_name_ = L"";
-	std::vector<SimpleVertex>   vertex_list_;
+	std::vector<Vertex>			vertex_list_;
 	std::vector<DWORD>			index_list_;
 protected:
 	TVector3					scale_;
@@ -50,6 +50,11 @@ private:
 	ComPtr<ID3D11Buffer>		vertex_buffer_;
 	ComPtr<ID3D11Buffer>		index_buffer_;
 	ComPtr<ID3D11InputLayout>	vertex_layout_;
+public:
+	Renderable();
+	virtual ~Renderable() {};
+private:
+	void		RegisterComponent();
 private:
 	HRESULT		CreateVertexBuffer();
 	HRESULT		CreateIndexBuffer();
@@ -62,7 +67,7 @@ public:
 	bool		Render();
 	bool		Release();
 protected:
-	virtual void		SetVertexData() = 0;
-	virtual void		SetIndexData() = 0;
+	virtual void		SetVertexData() {};
+	virtual void		SetIndexData() {};
 };
 

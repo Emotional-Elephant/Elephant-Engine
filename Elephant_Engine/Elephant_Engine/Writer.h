@@ -36,5 +36,3 @@ private:
 	Writer(const Writer&) = delete;
 	Writer& operator=(const Writer&) = delete;
 };
-
-#define I_Writer Writer::GetInstance()
