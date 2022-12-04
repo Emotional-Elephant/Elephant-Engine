@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 
-ComPtr<ID3D11ShaderResourceView> TextureManager::LoadSRV(std::wstring file_name)
+ComPtr<ID3D11ShaderResourceView> TextureManager::GetSRV(std::wstring file_name)
 {
 	ComPtr<ID3D11ShaderResourceView> texture_srv;
 	auto iter = texture_list_.find(file_name);
@@ -13,16 +13,16 @@ ComPtr<ID3D11ShaderResourceView> TextureManager::LoadSRV(std::wstring file_name)
 	std::shared_ptr<Texture> texture = std::make_shared<Texture>();
 
 	HRESULT hr = DirectX::CreateWICTextureFromFile(
-		I_Device.GetDevice().Get(),
-		I_Device.GetDeviceContext().Get(),
+		Device::GetInstance().GetDevice().Get(),
+		Device::GetInstance().GetDeviceContext().Get(),
 		file_name.c_str(),
 		(ID3D11Resource**) texture->texture_.GetAddressOf(),
 		texture->texture_srv_.GetAddressOf());
 	if (FAILED(hr))
 	{
 		hr = DirectX::CreateDDSTextureFromFile(
-			I_Device.GetDevice().Get(),
-			I_Device.GetDeviceContext().Get(),
+			Device::GetInstance().GetDevice().Get(),
+			Device::GetInstance().GetDeviceContext().Get(),
 			file_name.c_str(),
 			(ID3D11Resource**) texture->texture_.GetAddressOf(),
 			texture->texture_srv_.GetAddressOf());

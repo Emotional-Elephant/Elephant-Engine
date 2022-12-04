@@ -18,7 +18,7 @@ HRESULT Device::CreateDevice()
         nullptr, D3D_DRIVER_TYPE_HARDWARE, NULL,
         createDeviceFlags, pFeatureLevels, 1, D3D11_SDK_VERSION,
         d3d11_device_.GetAddressOf(),
-        &pFeatureLevel,
+        NULL,
         d3d11_device_context_.GetAddressOf()
     );
 
@@ -36,11 +36,11 @@ HRESULT Device::CreateSwapChain()
     DXGI_SWAP_CHAIN_DESC sd;
     ZeroMemory(&sd, sizeof(sd));
     sd.BufferCount = 1;
-    sd.BufferDesc.Width = I_Window.GetRTClient().right;
-    sd.BufferDesc.Height = I_Window.GetRTClient().bottom;
+    sd.BufferDesc.Width = Window::GetInstance().GetRTClient().right;
+    sd.BufferDesc.Height = Window::GetInstance().GetRTClient().bottom;
     sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-    sd.OutputWindow = I_Window.GetHWindow();
+    sd.OutputWindow = Window::GetInstance().GetHWindow();
     sd.Windowed = true;
 
     sd.BufferDesc.RefreshRate.Numerator = 60;
@@ -70,8 +70,8 @@ HRESULT Device::CreateRenderTargetView()
 void Device::CreateViewport()
 {
     D3D11_VIEWPORT vp;
-    vp.Width = I_Window.GetRTClient().right;
-    vp.Height = I_Window.GetRTClient().bottom;
+    vp.Width = Window::GetInstance().GetRTClient().right;
+    vp.Height = Window::GetInstance().GetRTClient().bottom;
     vp.TopLeftX = 0;
     vp.TopLeftY = 0;
     vp.MinDepth = 0.0f;

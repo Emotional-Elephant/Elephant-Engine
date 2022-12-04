@@ -41,4 +41,3 @@ private:
 	Device(const Device&) = delete;
 	Device& operator=(const Device&) = delete;
 };
-#define I_Device Device::GetInstance()

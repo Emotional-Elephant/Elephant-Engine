@@ -36,4 +36,3 @@ private:
 	Window(const Window&) = delete;
 	Window& operator=(const Window&) = delete;
 };
-#define I_Window Window::GetInstance()

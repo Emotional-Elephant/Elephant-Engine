@@ -32,5 +32,3 @@ private:
 	Timer(const Timer&) = delete;
 	Timer& operator=(const Timer&) = delete;
 };
-
-#define I_Timer Timer::GetInstance()

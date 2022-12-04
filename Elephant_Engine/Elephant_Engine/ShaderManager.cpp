@@ -36,8 +36,8 @@ ComPtr<ID3D11VertexShader> ShaderManager::GetVertexShader(std::wstring file_name
         assert(SUCCEEDED(hr));
     }
 
-    ID3D11VertexShader* vertex_shader_ptr;
-    hr = I_Device.GetDevice()->CreateVertexShader(
+    ID3D11VertexShader* vertex_shader_ptr = nullptr;
+    hr = Device::GetInstance().GetDevice()->CreateVertexShader(
         vs_code_ptr->GetBufferPointer(),
         vs_code_ptr->GetBufferSize(),
         NULL,
@@ -97,8 +97,8 @@ ComPtr<ID3DBlob> ShaderManager::GetVSCode(std::wstring file_name, std::string fu
         assert(SUCCEEDED(hr));
     }
 
-    ID3D11VertexShader* vertex_shader_ptr;
-    hr = I_Device.GetDevice()->CreateVertexShader(
+    ID3D11VertexShader* vertex_shader_ptr = nullptr;
+    hr = Device::GetInstance().GetDevice()->CreateVertexShader(
         vs_code_ptr->GetBufferPointer(),
         vs_code_ptr->GetBufferSize(),
         NULL,
@@ -158,8 +158,8 @@ ComPtr<ID3D11PixelShader> ShaderManager::GetPixelShader(std::wstring file_name, 
         assert(SUCCEEDED(hr));
     }
 
-    ID3D11PixelShader* pixel_shader_ptr;
-    hr = I_Device.GetDevice()->CreatePixelShader(
+    ID3D11PixelShader* pixel_shader_ptr = nullptr;
+    hr = Device::GetInstance().GetDevice()->CreatePixelShader(
         ps_code_ptr->GetBufferPointer(),
         ps_code_ptr->GetBufferSize(),
         NULL,

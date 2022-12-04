@@ -27,11 +27,11 @@ bool Writer::Init()
 bool Writer::Frame()
 {
 #ifdef _DEBUG
-	cur_text_ = L"play time: " + std::to_wstring(I_Timer.GetTotalPlayTime()) + L"\n";
-	cur_text_ += L"FPS: " + std::to_wstring(I_Timer.GetFPS()) + L"\n";
+	cur_text_ = L"play time: " + std::to_wstring(Timer::GetInstance().GetTotalPlayTime()) + L"\n";
+	cur_text_ += L"FPS: " + std::to_wstring(Timer::GetInstance().GetFPS()) + L"\n";
 	cur_text_ += L"cur coord: ";
-	cur_text_ += std::to_wstring(I_Input.GetMousePos().x) + L", ";
-	cur_text_ += std::to_wstring(I_Input.GetMousePos().y);
+	cur_text_ += std::to_wstring(Input::GetInstance().GetMousePos().x) + L", ";
+	cur_text_ += std::to_wstring(Input::GetInstance().GetMousePos().y);
 #endif
 	return true;
 }
@@ -51,7 +51,7 @@ HRESULT Writer::CreateDXResource()
 {
 	Init();
 	IDXGISurface1* pBackBuffer;
-	I_Device.GetSwapChain()->GetBuffer(0, __uuidof(IDXGISurface1),
+	Device::GetInstance().GetSwapChain()->GetBuffer(0, __uuidof(IDXGISurface1),
 		(void**)&pBackBuffer);
 	Set(pBackBuffer);
 	pBackBuffer->Release();
@@ -92,7 +92,7 @@ bool Writer::Set(IDXGISurface1* dxgi_surface)
 bool Writer::Draw(float x, float y, std::wstring text, D2D1_COLOR_F color)
 {
 	id2d1_render_target_->BeginDraw();
-	D2D1_RECT_F rt = { x, y, I_Window.GetRTClient().right, I_Window.GetRTClient().bottom };
+	D2D1_RECT_F rt = { x, y, Window::GetInstance().GetRTClient().right, Window::GetInstance().GetRTClient().bottom };
 	id2d1_color_brush_->SetColor(color);
 	id2d1_color_brush_->SetOpacity(1.0f);
 	id2d1_render_target_->DrawText(text.c_str(), text.size(), id_write_text_format_.Get(), rt, id2d1_color_brush_.Get());

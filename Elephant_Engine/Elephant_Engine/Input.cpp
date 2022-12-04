@@ -10,7 +10,7 @@ bool Input::Init()
 bool Input::Frame()
 {
     ::GetCursorPos(&mouse_pos_);
-    ::ScreenToClient(I_Window.GetHWindow(), &mouse_pos_);
+    ::ScreenToClient(Window::GetInstance().GetHWindow(), &mouse_pos_);
 
     for (int iKey = 0; iKey < 256; iKey++)
     {

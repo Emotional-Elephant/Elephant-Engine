@@ -17,5 +17,3 @@ private:
 	ShaderManager(const ShaderManager&) = delete;
 	ShaderManager& operator=(const ShaderManager&) = delete;
 };
-
-#define I_Shader ShaderManager::GetInstance()
