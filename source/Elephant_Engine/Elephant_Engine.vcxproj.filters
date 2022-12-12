@@ -25,6 +25,15 @@
     <Filter Include="Math">
       <UniqueIdentifier>{761eea18-982e-4c55-ada0-6d22beecdb26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Table">
+      <UniqueIdentifier>{c3430e7d-ab3d-4e36-b91f-62c574f0d560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{3ac38d8a-8a85-4bd4-abe5-7217d3be7bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{a0abffd5-0cf8-46b0-9e9e-ce1b7210a024}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineCore.cpp">
@@ -54,7 +63,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>pch</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="TableManager.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
@@ -70,6 +78,15 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="TextureManager.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,14 +114,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
-    <ClInclude Include="Config.h" />
-    <ClInclude Include="DataTable.h" />
-    <ClInclude Include="DataTable.hpp" />
-    <ClInclude Include="DataTableInterface.h" />
-    <ClInclude Include="DataTableLocalLoader.h" />
-    <ClInclude Include="DataTableLocalLoader.hpp" />
-    <ClInclude Include="TableDataInterface.h" />
-    <ClInclude Include="Utils.h" />
     <ClInclude Include="TableManager.h">
       <Filter>Resources</Filter>
     </ClInclude>
@@ -120,6 +129,39 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="TextureManager.h">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTable.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTable.hpp">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTableInterface.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTableLocalLoader.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTableLocalLoader.hpp">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="TableDataInterface.h">
+      <Filter>Table</Filter>
+    </ClInclude>
+    <ClInclude Include="ini.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
