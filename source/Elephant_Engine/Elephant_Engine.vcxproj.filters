@@ -88,6 +88,10 @@
     <ClCompile Include="Component.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="AppSubSystem.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineCore.h">
@@ -163,5 +167,9 @@
     <ClInclude Include="Component.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="AppSubSystem.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,7 @@
 #include <string>
 #include <memory>
 
-template <typename T>
-class BaseObject abstract : std::enable_shared_from_this<T>
+class BaseObject abstract
 {
 public:
 	BaseObject() = default;

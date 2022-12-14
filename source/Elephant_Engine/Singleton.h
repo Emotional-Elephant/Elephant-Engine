@@ -1,5 +1,8 @@
 #pragma once
-template<class T> class Singleton
+#include "Component.h"
+
+template<class T> 
+class Singleton : public Component
 {
 public:
 	static T& GetInstance()
